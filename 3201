@@ -1,0 +1,22 @@
+class Solution:
+    def maximumLength(self, nums: List[int]) -> int:
+        odd = 0
+        even = 0
+        count = 0
+        ifodd = True
+        if nums[0] % 2 == 1:
+            ifodd = False
+        for i in range(len(nums)):
+            if nums[i] % 2 == 0:
+                even += 1
+            else:
+                odd += 1
+            if ifodd:
+                if nums[i] % 2 == 0:
+                    count += 1
+                    ifodd = False
+            else:
+                if nums[i] % 2 == 1:
+                    count += 1
+                    ifodd = True
+        return max(odd,even,count)
