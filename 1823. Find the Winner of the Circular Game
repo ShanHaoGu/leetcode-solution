@@ -1,0 +1,11 @@
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        out = []
+        count = 0
+        k -= 1
+        for i in range(n):
+            out.append(i + 1)
+        while out:
+            count = (k + count) % len(out)
+            tem = out.pop(count)
+        return tem
