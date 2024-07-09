@@ -1,0 +1,9 @@
+class Solution:
+    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+        count = 0
+        total = 0
+        for i in range(len(customers)):
+            count = max(customers[i][0], count)
+            count += customers[i][1]
+            total += count - customers[i][0]
+        return total / len(customers)
