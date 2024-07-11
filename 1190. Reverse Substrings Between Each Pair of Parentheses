@@ -1,0 +1,16 @@
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        lb = []
+        for i in range(len(s)):
+            if s[i] == "(":
+                lb.append(i)
+            if s[i] == ")":
+                l = lb.pop()
+                s = s[:l + 1] + s[i - 1:l:-1] + s[i:]
+        i = 0
+        while i < len(s):
+            if s[i] == "(" or s[i] == ")":
+                s = s[:i] + s[i+1:]
+            else:
+                i += 1
+        return s
