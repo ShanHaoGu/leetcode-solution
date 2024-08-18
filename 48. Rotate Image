@@ -1,0 +1,11 @@
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        l = len(matrix) - 1
+        for i1 in range(len(matrix) // 2):
+            for i2 in range(len(matrix) // 2):
+                print(matrix)
+                matrix[i1][i2], matrix[l - i1][l - i2],matrix[l-i2][i1],matrix[i2][l - i1] = matrix[l-i2][i1], matrix[i2][l - i1],matrix[l - i1][l - i2],matrix[i1][i2]
+        if len(matrix) % 2 == 1:
+            count = len(matrix) // 2 
+            for i in range(count):
+                 matrix[i][count],matrix[l-i][count], matrix[count][i], matrix[count][l-i] = matrix[count][i],matrix[count][l-i], matrix[l-i][count], matrix[i][count]
