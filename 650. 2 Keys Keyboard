@@ -1,0 +1,12 @@
+class Solution:
+    def minSteps(self, n: int) -> int:
+        CheckFactor = 2
+        TotalStep = 0
+        while CheckFactor <= n:
+            while n % CheckFactor == 0:
+                n = n / CheckFactor
+                TotalStep += CheckFactor
+            CheckFactor += 1
+        if n != 1:
+            TotalStep += n
+        return TotalStep
