@@ -1,0 +1,26 @@
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        d1 = {}
+        d2 = {}
+        s1 = s1.split(" ")
+        s2 = s2.split(" ")
+        out = []
+        for i in s1:
+            if i in d1:
+                d1[i] += 1
+            else:
+                d1[i] = 1
+        for i in s2:
+            if i in d2:
+                d2[i] += 1
+            else:
+                d2[i] = 1
+        for i in d1:
+            if d1[i] == 1:
+                if i not in d2:
+                    out.append(i)
+        for i in d2:
+            if d2[i] == 1:
+                if i not in d1:
+                    out.append(i)
+        return out
